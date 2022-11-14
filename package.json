@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "scss": "node-sass -w view/scss -o public/css",
+    "nodemon": "nodemon app.js",
+    "dev": "npm run nodemon && npm run scss"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "node-sass": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
