@@ -1,10 +1,13 @@
+// const { hiddenwarrionRouter } = require('.');
 const { apiController } = require('../controller');
 const { mainRender } = require('../render');
-const { rozkladService } = require('../service');
+const { scheduleService } = require('../service');
 
 const router = require('express').Router();
 
-router.get('/',rozkladService.defaultRozklad)
+router.get('/',scheduleService.defaultSchedule)
+router.get('/:kahootid',apiController.helloWorld)
+// router.get('/hidden-warrion',hiddenwarrionRouter)
 
 
 module.exports = router

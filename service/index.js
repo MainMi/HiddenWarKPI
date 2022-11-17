@@ -1,3 +1,4 @@
 module.exports = {
-    rozkladService: require('./rozklad.service')
+    scheduleService: require('./schedule.service'),
+    hiddenwarrionService: require('./hiddenwarrion.service')
 }

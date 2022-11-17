@@ -1,8 +1,9 @@
+const { hiddenwarrionService } = require("../service")
+
 module.exports = {
-    helloWorld: (req,res) => {
-        a = 1
-        b = 2
-        c = a + b
-        res.json('Hello Node js')
+    helloWorld: async (req,res) => {
+        const { kahootid } = req.params
+        data = await hiddenwarrionService.defaultKahoot(kahootid)
+        res.json(data)
     }
 }

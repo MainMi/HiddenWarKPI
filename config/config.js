@@ -1,4 +1,5 @@
 module.exports = {
     PORT: process.env.PORT || 5000,
-    API_ROZKLAD: process.env.API_ROZKLAD || ''
+    API_SCHEDULE: process.env.API_SCHEDULE || ' ',
+    API_KAHOOT: process.env.API_KAHOOT || ' '
 }
