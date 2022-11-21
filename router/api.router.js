@@ -1,13 +1,15 @@
-// const { hiddenwarrionRouter } = require('.');
-const { apiController } = require('../controller');
-const { mainRender } = require('../render');
-const { scheduleService } = require('../service');
-
 const router = require('express').Router();
 
-router.get('/',scheduleService.defaultSchedule)
-router.get('/:kahootid',apiController.helloWorld)
+const scheduleRouter = require('./schedule.router');
+
+// const { scheduleService } = require('../service');
+// const scheduleRouter = require('./schedule.router');
+
+// router.get('/', scheduleService.defaultSchedule);
+router.use('/schedule', scheduleRouter);
+// router.get('/:kahootid', apiController.helloWorld);
+
+module.exports = router;
+// const { hiddenwarrionRouter } = require('.');
+// const { mainRender } = require('../render');
 // router.get('/hidden-warrion',hiddenwarrionRouter)
-
-
-module.exports = router

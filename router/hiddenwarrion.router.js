@@ -1,7 +1,5 @@
-// const { hiddenwarrrionController } = require('../controller');
+const router = require('express').Router();
 
-// const router = require('express').Router(); 
+router.post('/', (req, res) => res.json());
 
-// // router.get('/', hiddenwarrrionController);
-
-// module.exports = router;
+module.exports = router;

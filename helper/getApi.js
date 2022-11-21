@@ -1,12 +1,8 @@
-const axios = require("axios")
-
-
+const axios = require('axios');
 
 module.exports = {
     getUrl: async (url) => {
-        let data = await axios.get(url).then(function(response) {
-            return response.data
-        })
-        return data
+        const data = await axios.get(url).then((response) => response.data);
+        return data;
     }
-}
+};
