@@ -26,7 +26,6 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 mongoose.connect('mongodb://localhost:27017/testKPIDB')
     .then(() => console.log('DB connect success'));
 
-
 app.listen(PORT, () => {
     console.log(`start server ${PORT}`);
 });

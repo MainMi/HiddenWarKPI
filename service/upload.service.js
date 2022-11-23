@@ -1,14 +1,19 @@
-// const { API_SCHEDULE } = require('../config/config');
-// const { getApi } = require('../helper');
+const { API_SCHEDULE } = require('../config/config');
+const { getApi } = require('../helper');
 // const groupModel = require('../model/group.model');
 
 module.exports = {
-    uploadGroupData: (req, res) => {
-        // const dataGroup = await getApi(`${API_SCHEDULE}groups`);
-        // const data = dataGroup.data;
-        // console.log(data);
-        // // groupModel.insertMany(data);
-        // res.json(data);
-        res.json('Okay');
+    getAllGroup: async () => {
+        const dataGroup = await getApi.getUrl(`${API_SCHEDULE}groups`);
+        const { data } = dataGroup;
+        data.map((value) => value.groupId = value.id)
+        console.log(data);
+        return data;
+    },
+    getAllLecture: async () => {
+        const dataGroup = await getApi.getUrl(`${API_SCHEDULE}lecturer/list`);
+        const { data } = dataGroup;
+        data.map((value) => value.lectureId = value.id)
+        return data;
     }
 };
