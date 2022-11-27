@@ -1,13 +1,12 @@
 const router = require('express').Router();
 
+const { apiController } = require('../controller');
+const { apiMiddlaware } = require('../middleware');
 const scheduleRouter = require('./schedule.router');
 
-// const { scheduleService } = require('../service');
-// const scheduleRouter = require('./schedule.router');
-
-// router.get('/', scheduleService.defaultSchedule);
 router.use('/schedule', scheduleRouter);
-// router.get('/:kahootid', apiController.helloWorld);
+
+// router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
 
 module.exports = router;
 // const { hiddenwarrionRouter } = require('.');

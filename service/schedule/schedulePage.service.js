@@ -1,5 +1,5 @@
-const { API_SCHEDULE } = require('../config/config');
-const { getApi } = require('../helper');
+const { API_SCHEDULE } = require('../../config/config');
+const { getApi } = require('../../helper');
 
 module.exports = {
     defaultSchedule: async (req, res) => {

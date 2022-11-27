@@ -3,4 +3,4 @@ module.exports = {
     WARDEN: 'warden',
     STUDENT: 'student',
     USER: 'user'
-}
+};

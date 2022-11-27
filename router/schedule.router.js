@@ -1,10 +1,8 @@
 const router = require('express').Router();
 
-const { scheduleController } = require('../controller');
+const uploadRouter = require('./upload.router');
 
-router.get('/upload/group', scheduleController._uploadGroupData);
-router.get('/upload/lecture', scheduleController._uploadLectureData);
-
-// const { uploadService } = require('../service');
+router.get('/', (req, res) => res.json('ok'));
+router.use('/upload', uploadRouter);
 
 module.exports = router;
