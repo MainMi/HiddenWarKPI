@@ -1,8 +1,17 @@
 const axios = require('axios');
 
+let config = {
+    method: 'GET',
+    url: `url`,
+    headers: {
+        'Accept-Encoding': 'application/json'
+    }
+}
+
 module.exports = {
     getUrl: async (url) => {
-        const data = await axios.get(url, { responseEncoding: 'utf8' }).then((response) => response.data);
+        const data = await axios.request({...config, url}).then((response) => response.data);
+        console.log(data);
         return data;
     }
 };
