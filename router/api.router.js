@@ -1,11 +1,10 @@
 const router = require('express').Router();
 
-const { apiController } = require('../controller');
-const { apiMiddlaware } = require('../middleware');
+const KahootRouter = require('./kahoot.router');
 const scheduleRouter = require('./schedule.router');
-const kahootRouter = require('./kahoot.router');
 
 router.use('/schedule', scheduleRouter);
+router.use('/kahoot', KahootRouter);
 
 // router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
 

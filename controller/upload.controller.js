@@ -48,11 +48,11 @@ module.exports = {
             // eslint-disable-next-line no-inner-declarations
             async function getLessons(data, index = 1398) {
                 let currentScheduleData = await getApi.getUrl(`${API_SCHEDULE}lessons?groupId=${groupsData[index].groupId}`);
-                let { groupCode, scheduleFirstWeek, scheduleSecondWeek } = currentScheduleData.data;
+                let{ groupCode, scheduleFirstWeek, scheduleSecondWeek } = currentScheduleData.data;
                 lessonsModel.create({ scheduleFirstWeek, scheduleSecondWeek, groupId: groupCode });
                 console.log(index);
-                if (index == data.length - 1) { return }
-                setTimeout(() => getLessons(groupsData,index + 1), 500);
+                if (index === data.length - 1) { return; }
+                setTimeout(() => getLessons(groupsData, index + 1), 500);
             }
             getLessons(groupsData);
             res.send('Upload lessons success');

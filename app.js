@@ -11,7 +11,7 @@ const { apiRouter } = require('./router');
 
 const app = express();
 
-app.use(express.json());
+
 
 app.use('/', apiRouter);
 // app.use('*', _notFoundPathUrl);
@@ -32,6 +32,7 @@ function _mainErrorHandler(err, req, res, next) {
             message: err.message || ''
         });
 }
+app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
