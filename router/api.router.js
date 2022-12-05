@@ -6,7 +6,7 @@ const scheduleRouter = require('./schedule.router');
 
 router.use('/schedule', scheduleRouter);
 
-// router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
+router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
 
 module.exports = router;
 // const { hiddenwarrionRouter } = require('.');
