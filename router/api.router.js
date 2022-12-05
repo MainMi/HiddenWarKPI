@@ -7,9 +7,7 @@ const kahootRouter = require('./kahoot.router');
 
 router.use('/schedule', scheduleRouter);
 
-router.use('/kahoot', kahootRouter);
-
-router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
+// router.get('/:kahootid', apiMiddlaware.checkKahootId, apiController.helloWorld);
 
 module.exports = router;
 // const { hiddenwarrionRouter } = require('.');

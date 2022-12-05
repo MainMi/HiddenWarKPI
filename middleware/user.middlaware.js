@@ -8,6 +8,7 @@ module.exports = {
             if (error) {
                 next(new ApiError(402, 4022, error.details[0]));
             }
+            req.user = req.body;
             next();
         } catch (e) {
             next(e);
