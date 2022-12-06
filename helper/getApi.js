@@ -11,7 +11,6 @@ let config = {
 module.exports = {
     getUrl: async (url) => {
         const data = await axios.request({...config, url}).then((response) => response.data);
-        console.log(data);
         return data;
     }
 };

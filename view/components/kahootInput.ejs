@@ -1,0 +1,12 @@
+<h1 class="title">Kahoot Hidden Warrion 1.4v</h1>
+<div class="formKahoot" name="formKahoot">
+    <input type="text" placeholder="KAHOOT ID" class="kahoot-input" id="id">
+    <button class="kahoot-button" onclick="redirect()">Enter</button>
+</div>
+<script>
+    function redirect() {
+        let id = document.getElementById('id').value;
+        if (id) window.location.href = window.location.href.slice(0, window.location.href.indexOf("kahoot") + 6) + '/' + id;
+        else alert("You don't enter kahoot ID!");
+    }
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../components/header.ejs',{path: 'kahoot', title: 'Kahoot answers'}) %> 
+</head>
+<body>
+    <div class="background">
+        <div class="circle"></div>
+        <div class="romb"></div>
+    </div>
+    <div class="container">
+        <%- include('../components/kahootInput.ejs') %>
+        <h2 class="title" style="margin: 4.25rem 1% 1% 1%;"><%- data.title %></h2>
+        <h4 class="title" style="margin: 0 1%;"><i><%- data.description %></i></h4>
+        <br>
+        <div class="answer">
+            <% 
+                const figure_list = [
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; min-width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-cc816bc8-4af3-488c-a2f4-cfd5e53c1335" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-cc816bc8-4af3-488c-a2f4-cfd5e53c1335">Icon</title><path d="M27,24.559972 L5,24.559972 L16,7 L27,24.559972 Z" style="fill: inherit;"></path></svg></span>',
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; min-width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-2e900b55-43c7-4fe5-86b3-90d135297edf" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-2e900b55-43c7-4fe5-86b3-90d135297edf">Icon</title><path d="M4,16.0038341 L16,4 L28,16.0007668 L16,28 L4,16.0038341 Z" style="fill: inherit;"></path></svg></span>',
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; min-width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-cf99cb94-5494-493f-b148-036194eb485b" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-cf99cb94-5494-493f-b148-036194eb485b">Icon</title><path d="M16,27 C9.92486775,27 5,22.0751322 5,16 C5,9.92486775 9.92486775,5 16,5 C22.0751322,5 27,9.92486775 27,16 C27,22.0751322 22.0751322,27 16,27 Z" style="fill: inherit;"></path></svg></span>',
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; min-width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-01cd4174-a53b-486e-8fed-7de4a71b13e1" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-01cd4174-a53b-486e-8fed-7de4a71b13e1">Icon</title><path d="M7,7 L25,7 L25,25 L7,25 L7,7 Z" style="fill: inherit;"></path></svg></span>',
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; min-width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-48da6b10-dfba-45d6-a227-20781c3a768b" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-48da6b10-dfba-45d6-a227-20781c3a768b">Icon</title><path d="M8.584 27 4 12.786 16 3.982 28 12.786 23.417 27z" style="fill: inherit;"></path></svg></span>',
+                    '<span class="sc-dlfnbm idokwv card-icon__icon" data-functional-selector="icon" style="display: inline-block; vertical-align: middle; width: 40px; height: 40px;"><svg viewBox="0 0 32 32" focusable="false" stroke="rgba(0, 0, 0, 0.15)" stroke-width="1.3px" aria-labelledby="label-6810870c-9201-4616-86be-e908af65bb76" aria-hidden="true" class="sc-hKgILt bluJxS" style="paint-order: stroke;"><title id="label-6810870c-9201-4616-86be-e908af65bb76">Icon</title><path d="M5 8L16 26.857 27 8z" style="fill: inherit;"></path></svg></span>'
+                ];
+            %> 
+            <% data.questions.forEach((question, index) => { %>
+                <div class="answer-content">
+                    <h2>Питання <%- index + 1%>: <%- question.question %></h1>
+                        <% question.choices.forEach((choice, choiceIndex) => { %>
+                            <% if (choice['correct']) { %>
+                                <div class="answer-box set<%- choiceIndex + 1 %>">
+                                    <%- figure_list[choiceIndex] %>
+                                    <% if (choice.answer) { %>
+                                        <h3><%- choice.answer %></h3>
+                                    <% } else { %>
+                                        <img src="https://images-cdn.kahoot.it/<%- choice.image.id %>" alt="answer">
+                                    <% } %>
+                                </div>
+                            <% } %>
+                        <% }); %>
+                    
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
