@@ -1,3 +1,4 @@
 module.exports = {
-    getApi: require('./getApi')
+    getApi: require('./getApi'),
+    passwordHasher: require('./bcrypt.hepler')
 };

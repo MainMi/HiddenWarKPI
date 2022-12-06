@@ -1,4 +1,6 @@
 module.exports = {
-    scheduleDB: require('./scheduleDB.service'),
-    schedulePage: require('./schedulePage.service')
+    scheduleDB: require('./group.service'),
+    schedulePage: require('./schedulePage.service'),
+    groupService: require('./group.service'),
+    lessonService: require('./lesson.service')
 };

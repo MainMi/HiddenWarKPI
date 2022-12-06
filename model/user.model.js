@@ -10,8 +10,9 @@ const UserSchema = new Schema({
     group: { type: String, ref: 'Group' }
 }, { timeseries: true, toObject: { virtuals: true }, toJSON: { virtuals: true } });
 UserSchema
-    .pre('find', function() {
-        this.populate('groups');
+    .pre('find', function(next) {
+        this.populate('group');
+        next();
     });
 
 module.exports = model('User', UserSchema);

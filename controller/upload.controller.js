@@ -5,7 +5,7 @@ const lectureModel = require('../model/lecture.model');
 const lessonsModel = require('../model/lessons.model');
 
 const { uploadService } = require('../service');
-const scheduleDBService = require('../service/schedule/scheduleDB.service');
+const scheduleDBService = require('../service/schedule/group.service');
 
 module.exports = {
     uploadGroupData: async (req, res, next) => {
@@ -47,8 +47,8 @@ module.exports = {
             // });
             // eslint-disable-next-line no-inner-declarations
             async function getLessons(data, index = 1398) {
-                let currentScheduleData = await getApi.getUrl(`${API_SCHEDULE}lessons?groupId=${groupsData[index].groupId}`);
-                let{ groupCode, scheduleFirstWeek, scheduleSecondWeek } = currentScheduleData.data;
+                const currentScheduleData = await getApi.getUrl(`${API_SCHEDULE}lessons?groupId=${groupsData[index].groupId}`);
+            const { groupCode, scheduleFirstWeek, scheduleSecondWeek } = currentScheduleData.data;
                 lessonsModel.create({ scheduleFirstWeek, scheduleSecondWeek, groupId: groupCode });
                 console.log(index);
                 if (index === data.length - 1) { return; }
