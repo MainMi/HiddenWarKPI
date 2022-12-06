@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
-const KahootRouter = require('./kahoot.router');
-const scheduleRouter = require('./schedule.router');
+const { scheduleRouter, KahootRouter } = require('.');
 
 router.use('/schedule', scheduleRouter);
 router.use('/kahoot', KahootRouter);

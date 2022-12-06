@@ -6,14 +6,11 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const { PORT } = require('./config/config');
-const { apiRouter } = require('./router');
+const apiRouter = require('./router/api.router');
 // const ApiError = require('./error/ErrorHandler');
 
 const app = express();
 
-
-
-app.use('/', apiRouter);
 // app.use('*', _notFoundPathUrl);
 app.use(_mainErrorHandler);
 
@@ -40,6 +37,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/view')));
+
+app.use('/', apiRouter);
 
 dotenv.config({ path: path.join(__dirname, '.env') });
 
