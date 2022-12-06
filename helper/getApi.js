@@ -1,12 +1,12 @@
 const axios = require('axios');
 
-let config = {
+const config = {
     method: 'GET',
-    url: `url`,
+    url: '',
     headers: {
         'Accept-Encoding': 'application/json'
     }
-}
+};
 
 module.exports = {
     getUrl: async (url) => {
